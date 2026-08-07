@@ -3,355 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chirag Panchal | Portfolio</title>
+    <title>Chirag Panchal Portfolio</title>
     <style>
         :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --accent: #38bdf8;
-            --accent-hover: #0284c7;
-            --border-color: #334155;
-            --tag-bg: #0369a1;
-            --tag-text: #e0f2fe;
+            --bg-color: #090d16;
+            --card-bg: #111827;
+            --card-border: #1f293d;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --accent-cyan: #06b6d4;
+            --accent-blue: #3b82f6;
+            --accent-green: #10b981;
+            --gradient-accent: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+            --tag-bg: rgba(6, 182, 212, 0.1);
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+            scroll-behavior: smooth;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-main);
             line-height: 1.6;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2.5rem 1.5rem;
         }
 
-        header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.025em;
-        }
-
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--accent);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-
-        .bio {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 750px;
-        }
-
-        section {
-            margin-bottom: 3rem;
-        }
-
-        h2 {
-            font-size: 1.5rem;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.25rem;
-        }
-
-        .skill-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem;
-        }
-
-        .skill-card h3 {
-            font-size: 1.1rem;
-            color: var(--accent);
-            margin-bottom: 0.5rem;
-        }
-
-        .skill-card p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-        }
-
-        .project-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            transition: transform 0.2s ease, border-color 0.2s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            border-color: var(--accent);
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
+        /* Sticky Navigation Bar */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(9, 13, 22, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--card-border);
+            padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 1.5rem;
+        }
+
+        /* Hero Section with Photo */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap-reverse;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .hero-text h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text .title-badge {
+            display: inline-block;
+            background: var(--tag-bg);
+            color: var(--accent-cyan);
+            border: 1px solid rgba(6, 182, 212, 0.3);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .hero-text p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--accent-cyan);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.3);
+        }
+
+        /* Impact Metric Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .metric-card .number {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--accent-cyan);
+        }
+
+        .metric-card .label {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
             gap: 0.5rem;
         }
 
-        .badge {
-            font-size: 0.75rem;
-            background-color: #1e3a8a;
-            color: #93c5fd;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
+        /* Interactive Filter Buttons */
+        .filter-container {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
         }
 
-        .project-description {
+        .filter-btn {
+            background: var(--card-bg);
             color: var(--text-muted);
-            font-size: 0.98rem;
+            border: 1px solid var(--card-border);
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gradient-accent);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* Project Cards */
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 1.5rem;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--accent-cyan);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+        }
+
+        .project-header h3 {
+            font-size: 1.3rem;
+        }
+
+        .publication-tag {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 2px 10px;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .project-desc {
+            color: var(--text-muted);
             margin-bottom: 1rem;
         }
 
         .tags {
             display: flex;
-            flex-wrap: wrap;
             gap: 0.5rem;
+            flex-wrap: wrap;
             margin-bottom: 1rem;
         }
 
         .tag {
-            background-color: rgba(56, 189, 248, 0.1);
-            color: var(--accent);
-            border: 1px solid rgba(56, 189, 248, 0.3);
-            padding: 2px 10px;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        .education-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.25rem 1.5rem;
-        }
-
-        .edu-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            flex-wrap: wrap;
-        }
-
-        .degree {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .institution {
-            color: var(--accent);
-            font-size: 0.95rem;
-        }
-
-        .details {
-            color: var(--text-muted);
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-        }
-
-        .contact-links {
-            display: flex;
-            gap: 1.25rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-btn {
-            display: inline-block;
-            background-color: var(--card-bg);
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            padding: 0.6rem 1.2rem;
+            background: var(--tag-bg);
+            color: var(--accent-cyan);
+            padding: 3px 10px;
             border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            transition: all 0.2s ease;
+            font-size: 0.8rem;
         }
 
-        .contact-btn:hover {
-            background-color: var(--accent);
-            color: #000;
-            border-color: var(--accent);
+        /* Buttons & CTA */
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-accent);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            opacity: 0.9;
+        }
+
+        .btn-secondary {
+            background: var(--card-bg);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-cyan);
+            color: var(--accent-cyan);
         }
 
         footer {
             text-align: center;
+            padding: 2rem;
             color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid var(--border-color);
-            padding-top: 2rem;
-            margin-top: 3rem;
+            border-top: 1px solid var(--card-border);
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Chirag Panchal</h1>
-        <div class="subtitle">Computer Engineer | Data Analyst & Data Scientist</div>
-        <p class="bio">
-            Passionate about applying machine learning, statistical modeling, and data visualization to solve real-world industry problems. Experienced in building automated analytical pipelines, predictive models, and intuitive dashboards.
-        </p>
-    </header>
+    <!-- Top Navigation -->
+    <nav>
+        <div class="logo">Chirag Panchal</div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section>
-        <h2>Technical Expertise</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Languages & Databases</h3>
-                <p>Python, SQL, HTML/CSS, JavaScript</p>
-            </div>
-            <div class="skill-card">
-                <h3>Machine Learning & AI</h3>
-                <p>Scikit-Learn, TensorFlow, Logistic Regression, Random Forest, Deep Learning</p>
-            </div>
-            <div class="skill-card">
-                <h3>Data Analysis & Visualization</h3>
-                <p>Power BI, Tableau, Pandas, NumPy, Data Modeling, Feature Engineering</p>
-            </div>
-        </div>
-    </section>
+    <div class="container">
 
-    <section>
-        <h2>Featured Projects</h2>
+        <!-- Hero Section -->
+        <section class="hero" id="about">
+            <div class="hero-text">
+                <span class="title-badge">🤖 Data Engineer & Data Analyst</span>
+                <h1>Hi, I'm Chirag Panchal</h1>
+                <p>
+                    Data Science & ML professional with hands-on experience building client-facing Power BI dashboards and ML models for a pan-India retail network. Published, peer-reviewed CNN researcher (92% accuracy, IEEE Xplore). Skilled in Python, TensorFlow, scikit-learn, and Power BI — turning data into insights stakeholders act on.
+                </p>
+                <div class="btn-group">
+                    <a href="Resume - Chirag_Panchal.pdf" download="Resume - Chirag_Panchal.pdf" class="btn btn-primary">
+                        📄 Download Resume
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        📫 Get In Touch
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="profile.jpg" alt="Chirag Panchal" onerror="this.src='https://via.placeholder.com/180/111827/06b6d4?text=Chirag+Panchal'">
+            </div>
+        </section>
 
-        <div class="project-card">
-            <div class="project-title">
-                Automated Waste Segregation System
-                <span class="badge">IEEE Published</span>
+        <!-- Metric Highlights -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="number">92%</div>
+                <div class="label">Waste Classification Accuracy</div>
             </div>
-            <p class="project-description">
-                Developed a computer vision and deep learning solution to automate waste classification and segregation. Successfully achieved 92% accuracy across distinct waste categories to support environmental management.
-            </p>
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Deep Learning</span>
-                <span class="tag">TensorFlow</span>
-                <span class="tag">Computer Vision</span>
+            <div class="metric-card">
+                <div class="number">1+</div>
+                <div class="label">IEEE Research Paper</div>
             </div>
-        </div>
-
-        <div class="project-card">
-            <div class="project-title">
-                Loan Risk Analysis Dashboard
-            </div>
-            <p class="project-description">
-                Engineered an interactive analytics dashboard for financial environments to streamline credit risk assessments, identify default trends, and enable data-driven lending decisions.
-            </p>
-            <div class="tags">
-                <span class="tag">Power BI</span>
-                <span class="tag">DAX</span>
-                <span class="tag">SQL</span>
-                <span class="tag">Data Modeling</span>
+            <div class="metric-card">
+                <div class="number">4+</div>
+                <div class="label">End-to-End ML & Analytics Projects</div>
             </div>
         </div>
 
-        <div class="project-card">
-            <div class="project-title">
-                Insurance Fraud Detection System
+        <!-- Technical Skills -->
+        <section id="skills">
+            <h2>🛠️ Technical Stack</h2>
+            <div class="filter-container">
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">Python</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">SQL</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">TensorFlow</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">Scikit-Learn</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">Power BI</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">Pandas & NumPy</span>
+                <span class="tag" style="font-size:0.9rem; padding: 6px 14px;">DAX & Data Modeling</span>
             </div>
-            <p class="project-description">
-                Built predictive ML classifiers (Logistic Regression & Random Forest) to flag fraudulent insurance claims. Implemented robust feature engineering and cross-validation to minimize financial risk.
-            </p>
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Scikit-Learn</span>
-                <span class="tag">Random Forest</span>
-                <span class="tag">Statistical Modeling</span>
+        </section>
+
+        <!-- Projects Section with Filter -->
+        <section id="projects">
+            <h2>🚀 Featured Projects</h2>
+
+            <!-- Interactive Project Category Filters -->
+            <div class="filter-container">
+                <button class="filter-btn active" onclick="filterProjects('all')">All</button>
+                <button class="filter-btn" onclick="filterProjects('ml')">Machine Learning</button>
+                <button class="filter-btn" onclick="filterProjects('bi')">Business Intelligence</button>
             </div>
-        </div>
 
-        <div class="project-card">
-            <div class="project-title">
-                Retail Store Performance Analytics
+            <!-- Project 1 -->
+            <div class="project-card" data-category="ml">
+                <div class="project-header">
+                    <h3>Automated Waste Segregation System</h3>
+                    <span class="publication-tag">IEEE Published</span>
+                </div>
+                <p class="project-desc">
+                    Engineered a deep learning computer vision system to automate waste classification with 92% accuracy across non-biodegradable and recyclable waste streams.
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Deep Learning</span>
+                    <span class="tag">Computer Vision</span>
+                </div>
             </div>
-            <p class="project-description">
-                Constructed an end-to-end data processing pipeline utilizing statistical and machine learning methodologies to evaluate retail operational metrics and optimize resource allocation.
-            </p>
-            <div class="tags">
-                <span class="tag">Python</span>
-                <span class="tag">Pandas</span>
-                <span class="tag">Machine Learning</span>
-                <span class="tag">Data Visualization</span>
+
+            <!-- Project 2 -->
+            <div class="project-card" data-category="bi">
+                <div class="project-header">
+                    <h3>Loan Risk Analysis Dashboard</h3>
+                </div>
+                <p class="project-desc">
+                    Constructed a Power BI risk evaluation model using complex DAX measures to track loan defaults, applicant creditworthiness, and portfolio exposure for financial decisions.
+                </p>
+                <div class="tags">
+                    <span class="tag">Power BI</span>
+                    <span class="tag">DAX</span>
+                    <span class="tag">SQL</span>
+                    <span class="tag">Data Modeling</span>
+                </div>
             </div>
-        </div>
-    </section>
 
-    <section>
-        <h2>Education</h2>
-        <div class="education-card">
-            <div class="edu-header">
-                <span class="degree">B.Tech in Computer Science Engineering</span>
-                <span class="institution">MIT World Peace University, Pune</span>
+            <!-- Project 3 -->
+            <div class="project-card" data-category="ml">
+                <div class="project-header">
+                    <h3>Insurance Fraud Detection System</h3>
+                </div>
+                <p class="project-desc">
+                    Deployed Logistic Regression and Random Forest classifiers on historical claims data to detect anomalous metrics and reduce financial risk.
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Scikit-Learn</span>
+                    <span class="tag">Random Forest</span>
+                    <span class="tag">Feature Engineering</span>
+                </div>
             </div>
-            <div class="details">Graduated August 2024 | Cumulative GPA: 8.05</div>
-        </div>
-    </section>
 
-    <section>
-        <h2>Get In Touch</h2>
-        <div class="contact-links">
-            <!-- Downloadable Resume Button -->
-            <a href="Resume - Chirag_Panchal.pdf" download="Resume - Chirag_Panchal.pdf" class="contact-btn resume-btn">📄 Download Resume</a>
+            <!-- Project 4 -->
+            <div class="project-card" data-category="bi">
+                <div class="project-header">
+                    <h3>Retail Store Performance Analytics</h3>
+                </div>
+                <p class="project-desc">
+                    Created an end-to-end data pipeline evaluating retail operational metrics to optimize resource allocation and visualize monthly sales trends.
+                </p>
+                <div class="tags">
+                    <span class="tag">Python</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">Machine Learning</span>
+                    <span class="tag">Visualization</span>
+                </div>
+            </div>
+        </section>
 
-            <!-- GitHub Profile -->
-            <a href="https://github.com/Chirag8502" class="contact-btn" target="_blank">GitHub Profile</a>
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>📬 Contact & Links</h2>
+            <div class="btn-group" style="margin-top: 1rem;">
+                <a href="https://github.com/Chirag8502" class="btn btn-secondary" target="_blank">
+                    🌐 GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/chirag8502/" class="btn btn-secondary" target="_blank">
+                    💼 LinkedIn
+                </a>
+                <a href="mailto:cjpanchal08@gmail.com" class="btn btn-secondary">
+                    ✉️ Send Email
+                </a>
+            </div>
+        </section>
 
-            <!-- LinkedIn (MUST include https://) -->
-            <a href="https://www.linkedin.com/in/chirag8502/" class="contact-btn" target="_blank">LinkedIn</a>
-
-            <!-- Email (MUST start with mailto:) -->
-            <a href="mailto:cjpanchal08@gmail.com" class="contact-btn">Send Email</a>
-</div>
-    </section>
+    </div>
 
     <footer>
-        <p>&copy; Chirag Panchal. Hosted with GitHub Pages.</p>
+        <p>&copy; 2026 Chirag Panchal | Machine Learning & Data Portfolio</p>
     </footer>
 
+    <!-- Filter JavaScript -->
+    <script>
+        function filterProjects(category) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
